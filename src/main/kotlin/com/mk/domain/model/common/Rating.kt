@@ -1,4 +1,4 @@
-package com.mk.domain.common
+package com.mk.domain.model.common
 
 import java.util.*
 

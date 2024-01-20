@@ -1,7 +1,7 @@
 package com.mk.app.foodie.useCase
 
-import com.mk.app.foodie.result.GetFoodieResult
-import com.mk.domain.foodie.Foodie
+import com.mk.app.model.result.GetFoodieResult
+import com.mk.domain.model.foodie.Foodie
 import java.util.*
 
 interface GetFoodieUseCase {

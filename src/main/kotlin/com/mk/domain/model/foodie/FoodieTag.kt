@@ -1,4 +1,4 @@
-package com.mk.domain.foodie
+package com.mk.domain.model.foodie
 
 enum class FoodieTag {
     MEAT_LOVER,

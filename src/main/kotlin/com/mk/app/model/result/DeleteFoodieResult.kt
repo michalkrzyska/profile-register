@@ -1,6 +1,6 @@
-package com.mk.app.foodie.result
+package com.mk.app.model.result
 
-import com.mk.domain.foodie.Foodie
+import com.mk.domain.model.foodie.Foodie
 
 sealed class DeleteFoodieResult {
     data class Success(val foodie: Foodie) : GetFoodieResult()

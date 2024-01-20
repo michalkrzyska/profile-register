@@ -1,6 +1,6 @@
 package com.mk.app.foodie.useCase
 
-import com.mk.app.foodie.result.DeleteFoodieResult
+import com.mk.app.model.result.DeleteFoodieResult
 import java.util.*
 
 
