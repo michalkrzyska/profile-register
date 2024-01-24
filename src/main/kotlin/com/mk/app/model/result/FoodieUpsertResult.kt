@@ -1,6 +1,6 @@
 package com.mk.app.model.result
 
-import com.mk.domain.model.foodie.Foodie
+import com.mk.domain.model.Foodie
 
 sealed class FoodieUpsertResult {
     data class Success(val foodie: Foodie) : FoodieUpsertResult()

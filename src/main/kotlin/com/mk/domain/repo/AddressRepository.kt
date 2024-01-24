@@ -1,12 +1,9 @@
 package com.mk.domain.repo
 
-import com.mk.domain.model.common.Address
+import com.mk.domain.model.Address
+import io.micronaut.data.annotation.Repository
+import io.micronaut.data.jpa.repository.JpaRepository
 import java.util.*
 
-interface AddressRepository {
-
-
-    fun findById(id: Long): Optional<Address>
-    fun save(address: Address): Address
-
-}
+@Repository
+interface AddressRepository : JpaRepository<Address, UUID> {}

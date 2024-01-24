@@ -1,15 +1,23 @@
-package com.mk.domain.model.common
+package com.mk.domain.model
 
-import java.util.UUID
+import java.time.LocalDateTime
+import java.util.*
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
 
 
+@Entity
 data class Address(
-    var id: UUID? = null,
+    @Id
+    @GeneratedValue(generator = "UUID") val id: UUID? = null,
     val city: String,
     val country: String,
     val province: String,
     val line1: String,
-    val line2: String? = null
+    val line2: String? = null,
+    val createdAt: LocalDateTime = LocalDateTime.now(),
+    val updatedAt: LocalDateTime? = null
 ) {
 
     companion object {

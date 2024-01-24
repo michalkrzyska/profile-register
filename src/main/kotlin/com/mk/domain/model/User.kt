@@ -1,13 +1,14 @@
-package com.mk.domain.model.user
+package com.mk.domain.model
 
 import java.time.LocalDateTime
+import java.util.*
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
 data class User(
-    @Id @GeneratedValue val id: Long? = null,
+    @Id @GeneratedValue(generator = "UUID") val id: UUID? = null,
     val username: String,
     val email: String,
     val password: String,

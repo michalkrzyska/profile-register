@@ -7,15 +7,14 @@ import java.util.*
 @Introspected
 @Deserializable
 data class UpsertFoodieUserCommand(
-    val id: UUID?,
+    val userId: UUID?,
     val username: String,
     val email: String,
     val password: String,
-    val mainCityUUID: UUID?,
+    val mainCityUUID: UUID,
     val city: String,
     val country: String,
     val province: String,
     val line1: String,
     val line2: String
-
 )

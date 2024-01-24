@@ -4,6 +4,7 @@ plugins {
     id("com.google.devtools.ksp") version "1.9.21-1.0.16"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.2.1"
+    id("io.micronaut.test-resources") version "4.2.1"
     id("io.micronaut.aot") version "4.2.1"
 }
 
@@ -16,22 +17,22 @@ repositories {
 }
 
 dependencies {
+    ksp("io.micronaut.data:micronaut-data-processor")
     ksp("io.micronaut:micronaut-http-validation")
-    ksp("io.micronaut.openapi:micronaut-openapi")
     ksp("io.micronaut.serde:micronaut-serde-processor")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut.data:micronaut-data-jdbc")
+    implementation("io.micronaut.data:micronaut-data-jpa")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
+    implementation("io.micronaut.liquibase:micronaut-liquibase")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
+    implementation("javax.persistence:javax.persistence-api")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-    compileOnly("io.micronaut:micronaut-http-client")
-    compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-    testImplementation("io.micronaut:micronaut-http-client")
-    annotationProcessor("io.micronaut.data:micronaut-data-processor")
-    implementation("io.micronaut.data:micronaut-data-jpa")
-    implementation("jakarta.persistence:jakarta.persistence-api")
-    implementation("org.hibernate:hibernate-core:5.6.1.Final") // Replace with the version you need
+    runtimeOnly("org.postgresql:postgresql")
 }
 
 

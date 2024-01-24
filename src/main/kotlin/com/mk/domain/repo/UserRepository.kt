@@ -1,11 +1,9 @@
 package com.mk.domain.repo
 
-import com.mk.domain.model.user.User
-import java.util.Optional
+import com.mk.domain.model.User
+import io.micronaut.data.annotation.Repository
+import io.micronaut.data.jpa.repository.JpaRepository
+import java.util.*
 
-interface UserRepository {
-
-    fun findById(id: Long): Optional<User>
-    fun save(user: User): User
-
-}
+@Repository
+interface UserRepository : JpaRepository<User, UUID> {}

@@ -7,7 +7,7 @@ import com.mk.app.foodie.useCase.DeleteFoodieUseCase
 import com.mk.app.foodie.useCase.GetFoodieUseCase
 import com.mk.app.foodie.useCase.UpsertFoodieUseCase
 import com.mk.app.model.command.UpsertFoodieUserCommand
-import com.mk.domain.model.foodie.Foodie
+import com.mk.domain.model.Foodie
 import io.micronaut.http.annotation.*
 import java.util.*
 

@@ -8,20 +8,23 @@ import com.mk.app.model.result.DeleteFoodieResult
 import com.mk.app.model.result.FoodieUpsertResult
 import com.mk.app.model.result.GetFoodieResult
 import com.mk.app.model.result.UpsertError
-import com.mk.domain.model.common.Address
-import com.mk.domain.model.foodie.Foodie
-import com.mk.domain.model.user.User
+import com.mk.domain.model.Address
+import com.mk.domain.model.Foodie
+import com.mk.domain.model.User
 import com.mk.domain.repo.AddressRepository
 import com.mk.domain.repo.FoodieRepository
+import com.mk.domain.repo.RestaurantRepository
 import com.mk.domain.repo.UserRepository
+import io.micronaut.transaction.annotation.Transactional
 import jakarta.inject.Singleton
 import java.util.*
 
 @Singleton
-class FoodieService(
+open class FoodieService(
     private val userRepo: UserRepository,
     private val foodieRepo: FoodieRepository,
-    private val addressRepo: AddressRepository
+    private val addressRepo: AddressRepository,
+    private val restaurantRepo: RestaurantRepository
 ) : UpsertFoodieUseCase, GetFoodieUseCase,
     DeleteFoodieUseCase {
 
@@ -37,21 +40,14 @@ class FoodieService(
         TODO("Not yet implemented")
     }
 
+    @Transactional
     override fun upsert(command: UpsertFoodieUserCommand): FoodieUpsertResult {
-        val user = User.createUser(command.username, command.email, command.password);
-        val address =
-            Address.createAddress(command.city, command.country, command.province, command.line1, command.line2)
-        val foodie = Foodie.createFoodie(command.mainCityUUID, address, user);
-        saveToRepos(user, foodie, address);
-        //todo - please change
-        return FoodieUpsertResult.Failure(UpsertError.Email("eeaa"));
+        val user = userRepo.save(User.createUser(command.username, command.email, command.password));
+        val address = addressRepo.save( Address.createAddress(command.city, command.country, command.province,
+            command.line1, command.line2));
+        val foodie = foodieRepo.save(Foodie.createFoodie(command.mainCityUUID, address, user.id, address.id));
+        return FoodieUpsertResult.Success(foodie);
 
-    }
-
-    private fun saveToRepos(user: User, foodie: Foodie, addressDetails: Address) {
-        userRepo.save(user);
-        foodieRepo.save(foodie);
-        addressRepo.save(addressDetails)
     }
 
 
