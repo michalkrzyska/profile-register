@@ -1,10 +1,10 @@
-package com.mk.app.foodie.useCase
+package com.mk.app.restaurant.useCase
 
 import com.mk.app.foodie.result.DeleteFoodieResult
 import java.util.*
 
 
-interface DeleteFoodieUseCase {
+interface DeleteRestaurantUseCase {
     fun delete(id: UUID): DeleteFoodieResult
 
 }

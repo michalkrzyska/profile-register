@@ -21,7 +21,7 @@ data class Address(
 ) {
 
     companion object {
-        fun createAddress(
+        fun create(
             city: String,
             country: String,
             province: String,

@@ -1,4 +1,4 @@
-package com.mk.app.model.result
+package com.mk.app.foodie.result
 
 import com.mk.domain.model.Foodie
 

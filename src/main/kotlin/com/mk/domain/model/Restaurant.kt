@@ -11,10 +11,29 @@ data class Restaurant(
     @Id @GeneratedValue val id: UUID? = null,
     val mainCityUUID: UUID,
     val name: String,
-    val restaurantOrdinal: Int,
+    val ordinal: Int,
     val addressId: UUID,
+    val userId: UUID,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime? = null
 ) {
+
+    companion object {
+        fun create(
+            name: String,
+            restaurantOrdinal: Int,
+            mainCityUUID: UUID,
+            addressId: UUID,
+            userId: UUID
+        ): Restaurant {
+            return Restaurant(
+                name = name,
+                ordinal = restaurantOrdinal,
+                mainCityUUID = mainCityUUID,
+                addressId = addressId,
+                userId = userId
+            )
+        }
+    }
 
 }

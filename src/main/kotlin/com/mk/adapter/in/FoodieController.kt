@@ -1,12 +1,12 @@
-package com.mk.adapter.foodie.`in`
+package com.mk.adapter.`in`
 
-import com.mk.app.model.result.DeleteFoodieResult
-import com.mk.app.model.result.FoodieUpsertResult
-import com.mk.app.model.result.GetFoodieResult
+import com.mk.app.foodie.command.UpsertFoodieCommand
+import com.mk.app.foodie.result.DeleteFoodieResult
+import com.mk.app.foodie.result.GetFoodieResult
+import com.mk.app.foodie.result.UpsertFoodieResult
 import com.mk.app.foodie.useCase.DeleteFoodieUseCase
 import com.mk.app.foodie.useCase.GetFoodieUseCase
 import com.mk.app.foodie.useCase.UpsertFoodieUseCase
-import com.mk.app.model.command.UpsertFoodieUserCommand
 import com.mk.domain.model.Foodie
 import io.micronaut.http.annotation.*
 import java.util.*
@@ -19,7 +19,7 @@ class FoodieController(
 ) {
 
     @Post
-    fun upsert(@Body command: UpsertFoodieUserCommand): FoodieUpsertResult {
+    fun upsert(@Body command: UpsertFoodieCommand): UpsertFoodieResult {
         return upsertFoodieUseCase.upsert(command);
     }
 

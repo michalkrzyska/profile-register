@@ -8,6 +8,7 @@ plugins {
     id("io.micronaut.aot") version "4.2.1"
 }
 
+
 version = "0.1"
 group = "com.mk"
 
@@ -21,7 +22,6 @@ dependencies {
     ksp("io.micronaut:micronaut-http-validation")
     ksp("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut.data:micronaut-data-jdbc")
     implementation("io.micronaut.data:micronaut-data-jpa")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
     implementation("io.micronaut.liquibase:micronaut-liquibase")
@@ -33,6 +33,7 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.hibernate:hibernate-core")
 }
 
 
